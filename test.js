@@ -31,3 +31,7 @@ it('should parse arnoldc properly', function() {
 it('renames to .js', () => {
   expect(data.extname).to.equal('.js');
 });
+
+describe('source map support', () => {
+  it('should generate source maps when you ask for them');
+});
