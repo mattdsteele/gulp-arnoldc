@@ -18,7 +18,7 @@ beforeEach(done => {
       IT'S SHOWTIME
       TALK TO THE HAND "Hello World!!!"
       YOU HAVE BEEN TERMINATED`
-    )
+                        )
   }));
 
   stream.end();
