@@ -1,12 +1,12 @@
 # gulp-arnoldc [![Build Status](https://travis-ci.org/mattdsteele/gulp-arnoldc.svg?branch=master)](https://travis-ci.org/mattdsteele/gulp-arnoldc)
 
-> My gnarly gulp plugin
+> ArnoldC Gulp Plugin
 
 
 ## Install
 
 ```
-$ npm install --save-dev gulp-arnoldc
+$ npm i -D gulp-arnoldc
 ```
 
 
@@ -17,7 +17,7 @@ var gulp = require('gulp');
 var arnoldc = require('gulp-arnoldc');
 
 gulp.task('default', function () {
-	return gulp.src('src/file.ext')
+	return gulp.src('src/file.arnoldc')
 		.pipe(arnoldc())
 		.pipe(gulp.dest('dist'));
 });
@@ -26,17 +26,7 @@ gulp.task('default', function () {
 
 ## API
 
-### arnoldc(options)
-
-#### options
-
-##### foo
-
-Type: `boolean`  
-Default: `false`
-
-Lorem ipsum.
-
+### arnoldc()
 
 ## License
 

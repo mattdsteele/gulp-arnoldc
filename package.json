@@ -6,8 +6,8 @@
   "repository": "mattdsteele/gulp-arnoldc",
   "author": {
     "name": "Matt Steele",
-    "email": "orphum@gmail.com",
-    "url": "steele.blue"
+    "email": "matt@steele.blue",
+    "url": "http://steele.blue"
   },
   "engines": {
     "node": ">=0.10.0"
