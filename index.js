@@ -1,7 +1,7 @@
 'use strict';
-var gutil = require('gulp-util');
 var through = require('through2');
 var gutil = require('gulp-util');
+var applySourceMap = require('vinyl-sourcemaps-apply');
 var transpile = require('arnoldc.js/lib/Transpiler').transpile;
 
 module.exports = function (options) {
@@ -17,11 +17,17 @@ module.exports = function (options) {
 		}
 
 		try {
-      var mapping = transpile(file.contents.toString(), file.basename);
-      var output = mapping.toStringWithSourceMap({ fileName: file.basename + '.map' });
+      var mapping = transpile(file.contents.toString(), file.relative);
+      var output = mapping.toStringWithSourceMap({ file: file.relative + '.js' });
 			file.contents = new Buffer(output.code);
-      file.path = gutil.replaceExtension(file.path, '.arnoldc.js');
+      file.path = gutil.replaceExtension(file.path, '.js');
+
+      if (file.sourceMap) {
+        applySourceMap(file, output.map.toString());
+      }
+
 			this.push(file);
+
 		} catch (err) {
 			this.emit('error', new gutil.PluginError('gulp-arnoldc', err));
 		}
