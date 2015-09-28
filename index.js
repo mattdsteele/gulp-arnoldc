@@ -1,13 +1,10 @@
 'use strict';
 var gutil = require('gulp-util');
 var through = require('through2');
-var someModule = require('some-module');
+var gutil = require('gulp-util');
+var transpile = require('arnoldc.js/lib/Transpiler').transpile;
 
 module.exports = function (options) {
-	if (!options.foo) {
-		throw new gutil.PluginError('gulp-arnoldc', '`foo` required');
-	}
-
 	return through.obj(function (file, enc, cb) {
 		if (file.isNull()) {
 			cb(null, file);
@@ -20,7 +17,10 @@ module.exports = function (options) {
 		}
 
 		try {
-			file.contents = new Buffer(someModule(file.contents.toString(), options));
+      var mapping = transpile(file.contents.toString(), file.basename);
+      var output = mapping.toStringWithSourceMap({ fileName: file.basename + '.map' });
+			file.contents = new Buffer(output.code);
+      file.path = gutil.replaceExtension(file.path, '.arnoldc.js');
 			this.push(file);
 		} catch (err) {
 			this.emit('error', new gutil.PluginError('gulp-arnoldc', err));

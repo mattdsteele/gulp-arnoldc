@@ -22,7 +22,8 @@
     "gulpplugin"
   ],
   "dependencies": {
-    "gulp-util": "^3.0.4",
+    "arnoldc.js": "0.0.1",
+    "gulp-util": "^3.0.6",
     "through2": "^0.6.5"
   },
   "devDependencies": {
