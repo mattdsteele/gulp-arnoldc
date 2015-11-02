@@ -1,6 +1,6 @@
 {
   "name": "gulp-arnoldc",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "My gnarly gulp plugin",
   "license": "MIT",
   "repository": "mattdsteele/gulp-arnoldc",
@@ -22,7 +22,7 @@
     "gulpplugin"
   ],
   "dependencies": {
-    "arnoldc.js": "0.0.1",
+    "arnoldc.js": "~0.0.1",
     "gulp-util": "^3.0.6",
     "through2": "^0.6.5",
     "vinyl-sourcemaps-apply": "^0.2.0"
